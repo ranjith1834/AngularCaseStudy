@@ -1,0 +1,31 @@
+<app-nav-bar></app-nav-bar>
+<h3>Employee List</h3>
+<div>
+    <!-- <ag-grid-angular 
+        style="width: 1000px; height: 500px;"
+        class="ag-theme-alpine"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs" >
+    </ag-grid-angular> -->
+    <button type="button" [routerLink]="['/employee']">Add New Employee</button>
+    <table class="table table-striped table-light">
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of rowData">
+                <th>{{ emp.id }}</th>
+                <td>{{ emp.firstName }}</td>
+                <td>{{ emp.lastName }}</td>                
+                <td>{{ emp.mobileNumber }}</td>
+                <td>
+                    <button type="button" [routerLink]="['/employee',emp.id]">Edit</button>
+                    <button type="button" (click)="DeleteEmployee(emp)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
